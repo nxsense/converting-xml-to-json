@@ -2,7 +2,7 @@
   "catalog": {
     "book": [
       {
-        "@id": "bk101",
+        "id": "bk101",
         "author": "Gambardella, Matthew",
         "title": "XML Developer's Guide",
         "genre": "Computer",
@@ -11,7 +11,7 @@
         "description": "An in-depth look at creating applications\n      with XML."
       },
       {
-        "@id": "bk102",
+        "id": "bk102",
         "author": "Ralls, Kim",
         "title": "Midnight Rain",
         "genre": "Fantasy",
@@ -20,7 +20,7 @@
         "description": "A former architect battles corporate zombies,\n      an evil sorceress, and her own childhood to become queen\n      of the world."
       },
       {
-        "@id": "bk103",
+        "id": "bk103",
         "author": "Corets, Eva",
         "title": "Maeve Ascendant",
         "genre": "Fantasy",
@@ -29,7 +29,7 @@
         "description": "After the collapse of a nanotechnology \n      society in England, the young survivors lay the \n      foundation for a new society."
       },
       {
-        "@id": "bk104",
+        "id": "bk104",
         "author": "Corets, Eva",
         "title": "Oberon's Legacy",
         "genre": "Fantasy",

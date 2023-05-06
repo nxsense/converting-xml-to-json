@@ -1,3 +1,8 @@
+package util;
+
+import convert.Converter;
+import convert.impl.JsonConverter;
+import convert.impl.XmlConverter;
 import dataFormat.DataFormatFactory;
 import dataFormat.factoryImpl.JsonDataFormatFactory;
 import dataFormat.factoryImpl.XmlDataFormatFactory;
@@ -9,9 +14,8 @@ import java.io.*;
 import java.util.Scanner;
 
 public class UserInterface {
-    private DataFormatFactory jsonFactory;
-    private DataFormatFactory xmlFactory;
-    private Converter converter;
+    private final DataFormatFactory jsonFactory;
+    private final DataFormatFactory xmlFactory;
 
     public UserInterface() {
         jsonFactory = new JsonDataFormatFactory();
@@ -35,6 +39,7 @@ public class UserInterface {
         int outputFormat = scanner.nextInt();
 
         // Ініціалізуємо конвертер залежно від вибраних форматів
+        Converter converter;
         if (inputFormat == 1 && outputFormat == 2) {
             converter = new JsonConverter(xmlFactory);
         } else if (inputFormat == 2 && outputFormat == 1) {
