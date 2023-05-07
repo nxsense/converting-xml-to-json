@@ -1,8 +1,9 @@
 package dataFormat.formatImpl;
 
 import dataFormat.DataFormat;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import json.JsonArray;
+import json.JsonObject;
+import json.JsonString;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -25,20 +26,20 @@ public class JsonDataFormat extends DataFormat {
             InputSource is = new InputSource(new StringReader(data));
             Document doc = builder.parse(is);
             NodeList nodes = doc.getElementsByTagName("*");
-            JSONObject json = new JSONObject();
+            JsonObject jsonObject = new JsonObject();
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element element = (Element) nodes.item(i);
                 if (element.getChildNodes().getLength() == 1) {
-                    json.put(element.getNodeName(), element.getTextContent());
+                    jsonObject.add(new JsonString(element.getNodeName(), element.getTextContent()));
                 } else {
-                    JSONObject obj = new JSONObject();
+                    JsonObject obj = new JsonObject();
                     for (int j = 0; j < element.getChildNodes().getLength(); j++) {
                         Node child = element.getChildNodes().item(j);
                         if (child.getNodeType() == Node.ELEMENT_NODE) {
-                            obj.put(child.getNodeName(), child.getTextContent());
+                            obj.add(new JsonString(child.getNodeName(), child.getTextContent()));
                         }
                     }
-                    json.put(element.getNodeName(), obj);
+                    jsonObject.add(new JsonString(element.getNodeName(), obj.toJsonString()));
                 }
             }
         } catch (Exception e) {
@@ -60,30 +61,30 @@ public class JsonDataFormat extends DataFormat {
             Element root = doc.getDocumentElement();
 
             // Перетворення дерева об'єктів у JSON об'єкти
-            JSONArray jsonArray = new JSONArray();
+            JsonArray jsonArray = new JsonArray();
             NodeList nodeList = root.getChildNodes();
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node instanceof Element element) {
-                    JSONObject json = new JSONObject();
+                    JsonObject json = new JsonObject();
                     NamedNodeMap attributes = element.getAttributes();
                     for (int j = 0; j < attributes.getLength(); j++) {
                         Node attribute = attributes.item(j);
-                        json.put(attribute.getNodeName(), attribute.getNodeValue());
+                        json.add(new JsonString(attribute.getNodeName(), attribute.getNodeValue()));
                     }
                     NodeList childNodes = element.getChildNodes();
                     for (int j = 0; j < childNodes.getLength(); j++) {
                         Node childNode = childNodes.item(j);
                         if (childNode instanceof Element childElement) {
-                            json.put(childElement.getTagName(), childElement.getTextContent());
+                            json.add(new JsonString(childElement.getTagName(), childElement.getTextContent()));
                         }
                     }
-                    jsonArray.put(json);
+                    jsonArray.add(json);
                 }
             }
 
             // Повернення JSON даних у вигляді рядка
-            return jsonArray.toString();
+            return jsonArray.toJsonString();
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
