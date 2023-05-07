@@ -1,8 +1,9 @@
+import util.ConversionFacade;
 import util.UserInterface;
 
 public class Converting {
-    static UserInterface userInterface = new UserInterface();
+    static ConversionFacade conversionFacade = new ConversionFacade();
     public static void main(String[] args) {
-        userInterface.start();
+        conversionFacade.convert();
     }
 }
