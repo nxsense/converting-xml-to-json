@@ -17,12 +17,15 @@ public class XmlConverter extends Converter {
     }
 
     @Override
-    public String convert(String data) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+    protected void parseData(DataFormat dataFormat, String data) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         // Парсимо XML
-        DataFormat xmlDataFormat = dataFormatFactory.createDataFormat();
-        xmlDataFormat.parse(data);
+        dataFormat.parse(data);
+    }
 
+    @Override
+    protected String renderData(DataFormat dataFormat) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         // Отримуємо сконвертовані JSON дані
-        return xmlDataFormat.render(data);
+        return dataFormat.render(dataFormat.getOriginalData());
     }
 }
+

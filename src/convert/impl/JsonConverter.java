@@ -3,7 +3,6 @@ package convert.impl;
 import convert.Converter;
 import dataFormat.DataFormat;
 import dataFormat.DataFormatFactory;
-import dataFormat.formatImpl.XmlDataFormat;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,18 +11,20 @@ import java.io.IOException;
 
 public class JsonConverter extends Converter {
 
-
     public JsonConverter(DataFormatFactory dataFormatFactory) {
         super(dataFormatFactory);
     }
 
-
-    public String convert(String data) throws TransformerException, ParserConfigurationException, IOException, SAXException {
+    @Override
+    protected void parseData(DataFormat dataFormat, String data) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         // Парсимо JSON
-        DataFormat jsonDataFormat = dataFormatFactory.createDataFormat();
-        jsonDataFormat.parse(data);
+        dataFormat.parse(data);
+    }
 
+    @Override
+    protected String renderData(DataFormat dataFormat) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         // Отримуємо сконвертовані XML дані
-        return jsonDataFormat.render(data);
+        return dataFormat.render(dataFormat.getOriginalData());
     }
 }
+

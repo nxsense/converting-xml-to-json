@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98f9db6b-ea84-4098-9945-a94d77cf0fd2" name="Changes" comment="facade impl">
-      <change afterPath="$PROJECT_DIR$/src/json/JsonArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/json/JsonElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/json/JsonObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/json/JsonString.java" afterDir="false" />
+    <list default="true" id="98f9db6b-ea84-4098-9945-a94d77cf0fd2" name="Changes" comment="rewrited my own json classes">
+      <change afterPath="$PROJECT_DIR$/src/b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/json.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/convert/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/convert/impl/JsonConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/impl/JsonConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/convert/impl/XmlConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/impl/XmlConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataFormat/DataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/DataFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataFormat/formatImpl/JsonDataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/formatImpl/JsonDataFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataFormat/formatImpl/XmlDataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/formatImpl/XmlDataFormat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +95,7 @@
       <workItem from="1683145599848" duration="351000" />
       <workItem from="1683267778477" duration="20989000" />
       <workItem from="1683320449551" duration="12104000" />
-      <workItem from="1683441875472" duration="8718000" />
+      <workItem from="1683441875472" duration="12857000" />
     </task>
     <task id="LOCAL-00001" summary="facade impl">
       <created>1683449512757</created>
@@ -100,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683449512758</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rewrited my own json classes">
+      <created>1683453706030</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683453706030</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +119,28 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="facade impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="facade impl" />
+    <MESSAGE value="rewrited my own json classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewrited my own json classes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/ConversionFacade.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/util/UserInterface.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="data" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

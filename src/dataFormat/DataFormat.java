@@ -9,4 +9,5 @@ import java.io.IOException;
 public abstract class DataFormat {
     public abstract void parse(String data) throws ParserConfigurationException, IOException, SAXException;
     public abstract String render(String data) throws TransformerException;
+    public abstract String getOriginalData();
 }

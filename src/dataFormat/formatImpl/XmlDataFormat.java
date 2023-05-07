@@ -16,8 +16,10 @@ import java.io.StringReader;
 import java.util.Iterator;
 
 public class XmlDataFormat extends DataFormat {
+    private String originalData;
     @Override
     public void parse(String data) {
+        this.originalData = data;
         JSONObject jsonObject = new JSONObject();
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -90,6 +92,11 @@ public class XmlDataFormat extends DataFormat {
             xmlString = xmlString.substring(1);
         }
         return xmlString;
+    }
+
+    @Override
+    public String getOriginalData() {
+        return originalData;
     }
 
 

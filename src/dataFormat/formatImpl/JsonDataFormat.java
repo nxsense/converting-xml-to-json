@@ -18,8 +18,9 @@ import java.io.StringReader;
 
 public class JsonDataFormat extends DataFormat {
 
-
+    private String originalData;
     public void parse(String data) {
+        this.originalData = data;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -90,6 +91,11 @@ public class JsonDataFormat extends DataFormat {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public String getOriginalData() {
+        return originalData;
     }
 
 
