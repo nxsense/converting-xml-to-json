@@ -2,6 +2,7 @@ package convert;
 
 import dataFormat.DataFormat;
 import dataFormat.DataFormatFactory;
+import validation.ValidatorVisitor;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -10,13 +11,16 @@ import java.io.IOException;
 
 public abstract class Converter {
     protected DataFormatFactory dataFormatFactory;
+    private ValidatorVisitor validatorVisitor;
 
-    protected Converter(DataFormatFactory dataFormatFactory) {
+    protected Converter(DataFormatFactory dataFormatFactory, ValidatorVisitor validator) {
+        this.validatorVisitor = validator;
         this.dataFormatFactory = dataFormatFactory;
     }
 
     public final String convert(String data) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         DataFormat dataFormat = dataFormatFactory.createDataFormat();
+        dataFormat.accept(validatorVisitor);
         parseData(dataFormat, data);
         return renderData(dataFormat);
     }

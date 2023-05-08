@@ -1,6 +1,5 @@
 package util;
 
-import convert.Converter;
 
 public class ConversionFacade {
     private final UserInterface userInterface;

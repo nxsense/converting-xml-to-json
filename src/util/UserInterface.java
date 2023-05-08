@@ -4,6 +4,8 @@ import convert.Converter;
 import convert.impl.JsonConverter;
 import convert.impl.XmlConverter;
 import dataFormat.DataFormatFactory;
+import validation.DataFormatValidatorVisitor;
+import validation.ValidatorVisitor;
 import dataFormat.factoryImpl.JsonDataFormatFactory;
 import dataFormat.factoryImpl.XmlDataFormatFactory;
 import org.xml.sax.SAXException;
@@ -16,9 +18,11 @@ import java.util.Scanner;
 public class UserInterface {
     private final DataFormatFactory jsonFactory;
     private final DataFormatFactory xmlFactory;
+    private final ValidatorVisitor validatorVisitor;
     private Scanner scanner = new Scanner(System.in);
 
     public UserInterface() {
+        validatorVisitor = new DataFormatValidatorVisitor();
         jsonFactory = new JsonDataFormatFactory();
         xmlFactory = new XmlDataFormatFactory();
     }
@@ -45,9 +49,9 @@ public class UserInterface {
     public Converter getConverter(int inputFormat, int outputFormat) {
         Converter converter;
         if (inputFormat == 1 && outputFormat == 2) {
-            converter = new JsonConverter(xmlFactory);
+            converter = new JsonConverter(xmlFactory, validatorVisitor);
         } else if (inputFormat == 2 && outputFormat == 1) {
-            converter = new XmlConverter(jsonFactory);
+            converter = new XmlConverter(jsonFactory, validatorVisitor);
         } else {
             throw new IllegalArgumentException("Невірно вибрані формати!");
         }

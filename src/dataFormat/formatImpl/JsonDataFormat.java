@@ -1,6 +1,7 @@
 package dataFormat.formatImpl;
 
 import dataFormat.DataFormat;
+import validation.ValidatorVisitor;
 import json.JsonArray;
 import json.JsonObject;
 import json.JsonString;
@@ -19,6 +20,8 @@ import java.io.StringReader;
 public class JsonDataFormat extends DataFormat {
 
     private String originalData;
+    private JsonObject jsonObject;
+
     public void parse(String data) {
         this.originalData = data;
         try {
@@ -27,22 +30,23 @@ public class JsonDataFormat extends DataFormat {
             InputSource is = new InputSource(new StringReader(data));
             Document doc = builder.parse(is);
             NodeList nodes = doc.getElementsByTagName("*");
-            JsonObject jsonObject = new JsonObject();
+            JsonObject.Builder builderObj = new JsonObject.Builder();
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element element = (Element) nodes.item(i);
                 if (element.getChildNodes().getLength() == 1) {
-                    jsonObject.add(new JsonString(element.getNodeName(), element.getTextContent()));
+                    builderObj.add(element.getNodeName(), element.getTextContent());
                 } else {
-                    JsonObject obj = new JsonObject();
+                    JsonObject.Builder objBuilder = new JsonObject.Builder();
                     for (int j = 0; j < element.getChildNodes().getLength(); j++) {
                         Node child = element.getChildNodes().item(j);
                         if (child.getNodeType() == Node.ELEMENT_NODE) {
-                            obj.add(new JsonString(child.getNodeName(), child.getTextContent()));
+                            objBuilder.add(child.getNodeName(), child.getTextContent());
                         }
                     }
-                    jsonObject.add(new JsonString(element.getNodeName(), obj.toJsonString()));
+                    builderObj.add(element.getNodeName(), objBuilder.build());
                 }
             }
+            jsonObject = builderObj.build();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,6 +100,11 @@ public class JsonDataFormat extends DataFormat {
     @Override
     public String getOriginalData() {
         return originalData;
+    }
+
+    @Override
+    public void accept(ValidatorVisitor visitor) {
+        visitor.visit(this);
     }
 
 

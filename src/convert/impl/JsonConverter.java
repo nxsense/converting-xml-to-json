@@ -3,6 +3,7 @@ package convert.impl;
 import convert.Converter;
 import dataFormat.DataFormat;
 import dataFormat.DataFormatFactory;
+import validation.ValidatorVisitor;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -11,8 +12,9 @@ import java.io.IOException;
 
 public class JsonConverter extends Converter {
 
-    public JsonConverter(DataFormatFactory dataFormatFactory) {
-        super(dataFormatFactory);
+    public JsonConverter(DataFormatFactory dataFormatFactory, ValidatorVisitor validatorVisitor) {
+
+        super(dataFormatFactory, validatorVisitor);
     }
 
     @Override

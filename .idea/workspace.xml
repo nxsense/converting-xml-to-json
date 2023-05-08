@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98f9db6b-ea84-4098-9945-a94d77cf0fd2" name="Changes" comment="rewrited my own json classes">
-      <change afterPath="$PROJECT_DIR$/src/b.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/json.json" afterDir="false" />
+    <list default="true" id="98f9db6b-ea84-4098-9945-a94d77cf0fd2" name="Changes" comment="fixed">
+      <change afterPath="$PROJECT_DIR$/src/gg.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/validation/DataFormatValidatorVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/validation/ValidatorVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Converting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Converting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/convert/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/convert/impl/JsonConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/impl/JsonConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/convert/impl/XmlConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/convert/impl/XmlConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataFormat/DataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/DataFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataFormat/formatImpl/JsonDataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/formatImpl/JsonDataFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataFormat/formatImpl/XmlDataFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataFormat/formatImpl/XmlDataFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ConversionFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ConversionFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="UML Sequence" />
       </list>
     </option>
   </component>
@@ -45,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -95,7 +101,8 @@
       <workItem from="1683145599848" duration="351000" />
       <workItem from="1683267778477" duration="20989000" />
       <workItem from="1683320449551" duration="12104000" />
-      <workItem from="1683441875472" duration="12857000" />
+      <workItem from="1683441875472" duration="19207000" />
+      <workItem from="1683534118996" duration="2337000" />
     </task>
     <task id="LOCAL-00001" summary="facade impl">
       <created>1683449512757</created>
@@ -111,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683453706030</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed">
+      <created>1683457697510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683457697510</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,23 +134,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="facade impl" />
     <MESSAGE value="rewrited my own json classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrited my own json classes" />
+    <MESSAGE value="fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/util/ConversionFacade.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/util/UserInterface.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="data" />

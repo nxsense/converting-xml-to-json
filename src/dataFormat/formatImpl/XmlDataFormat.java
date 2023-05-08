@@ -1,6 +1,7 @@
 package dataFormat.formatImpl;
 
 import dataFormat.DataFormat;
+import validation.ValidatorVisitor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -97,6 +98,11 @@ public class XmlDataFormat extends DataFormat {
     @Override
     public String getOriginalData() {
         return originalData;
+    }
+
+    @Override
+    public void accept(ValidatorVisitor visitor) {
+        visitor.visit(this);
     }
 
 
