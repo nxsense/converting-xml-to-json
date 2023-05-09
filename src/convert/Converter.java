@@ -20,8 +20,8 @@ public abstract class Converter {
 
     public final String convert(String data) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         DataFormat dataFormat = dataFormatFactory.createDataFormat();
-        dataFormat.accept(validatorVisitor);
         parseData(dataFormat, data);
+        dataFormat.accept(validatorVisitor);
         return renderData(dataFormat);
     }
 

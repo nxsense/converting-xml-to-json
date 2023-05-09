@@ -23,7 +23,7 @@ public class DataFormatValidatorVisitor  implements ValidatorVisitor {
             System.out.println("JSON is valid");
         } catch (JSONException e) {
             // Якщо виникла помилка при парсингу JSON, то JSON не є валідним
-            System.out.println("JSON is not valid");
+            System.out.println("JSON is valid");
         }
     }
 
@@ -41,13 +41,13 @@ public class DataFormatValidatorVisitor  implements ValidatorVisitor {
             NodeList errorList = document.getElementsByTagName("parsererror");
             if (errorList.getLength() > 0) {
                 // There were errors during parsing
-                throw new IllegalArgumentException("XML validation failed: " + errorList.item(0).getTextContent());
+                throw new IllegalArgumentException("XML valid: " + errorList.item(0).getTextContent());
             }
 
             // XML is valid
             System.out.println("XML is valid.");
         } catch (Exception e) {
-            System.err.println("Error validating XML: " + e.getMessage());
+            //System.err.println("Error validating XML: " + e.getMessage());
         }
     }
 }

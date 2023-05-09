@@ -23,6 +23,7 @@ public class XmlDataFormat extends DataFormat {
         this.originalData = data;
         JSONObject jsonObject = new JSONObject();
         try {
+            data = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + data;
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             InputSource inputSource = new InputSource(new StringReader(data));
@@ -39,7 +40,7 @@ public class XmlDataFormat extends DataFormat {
             }
             hasChildNodes(jsonObject, root.hasChildNodes(), root.getChildNodes());
         } catch (ParserConfigurationException | IOException | SAXException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
         System.out.println(jsonObject);
     }
@@ -83,7 +84,7 @@ public class XmlDataFormat extends DataFormat {
         StringBuilder xmlBuilder = new StringBuilder();
         try {
             JSONObject json = new JSONObject(data);
-            xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+           xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             convertJsonObjectToXml(json, xmlBuilder);
         } catch (JSONException e) {
             e.printStackTrace();
